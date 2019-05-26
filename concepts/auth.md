@@ -7,12 +7,7 @@ authenticate.  With the xplat CLI, [logging in](https://docs.microsoft.com/en-us
 # AzureCloud is the default, but you can login to another environment with -e
 # azure login -e <environment-name>
 
-$ azure login
-info:    Executing command login
-info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. Enter the code XXXXXXXX to authenticate.
-info:    Added subscription Microsoft Azure Internal Consumption
-info:    Added subscription Microsoft Azure Internal Consumption
-info:    login command OK
+$ az login
 ```
 
 But what is happening behind the scenes?  When you open the web page indicated,
@@ -34,20 +29,7 @@ when you will need to know your TenantId, a unique internal designator
 attached to every AAD tenant.  You can find it via
 
 ```bash
-$ azure account show
-info:    Executing command account show
-data:    Name                        : Microsoft Azure Internal Consumption
-data:    ID                          : <subscription-id>
-data:    State                       : Enabled
-data:    Tenant ID                   : <tenant-id>
-data:    Is Default                  : true
-data:    Environment                 : AzureCloud
-data:    Has Certificate             : No
-data:    Has Access Token            : Yes
-data:    User name                   : jastev@microsoft.com
-data:    
-info:    account show command OK
-
+$ az account show
 ```
 
 Note that AAD tenants are specific to an [environment](environments.md).  You
@@ -98,7 +80,7 @@ best practice is to get in the habit of logging out of the CLI when you're
 finished with a session, as this deletes the tokens.
 
 ```bash
-# azure logout
+# az logout
 ```
 
 You can also simply delete the file.

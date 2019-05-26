@@ -42,40 +42,16 @@ the first party RPs provided by Microsoft have namespaces such as
 Microsoft.Network, Microsoft.Storage, and Microsoft.Compute.
 
 ```bash
-$ azure provider list
-data:    
-...
-data:    ProviderNamespace :  Microsoft.Compute
-data:    RegistrationState :  Registered
-data:    ResourceTypes     :  availabilitySets, virtualMachines, virtualMachines/extensions, virtualMachineScaleSets...
-data:    Locations         :  East US, East US 2, West US, Central US...
-...
-info:    provider list command OK
+$ az provider list
 ```
 
 For a specific provider, you can get the list of the resource types that 
 it supports, and the regions where each is available.
 
 ```bash
-# azure provider show <provider-namespace>
-# azure provider show -n <provider-namespace>
+# az provider show --namespace <provider-namespace>
 
-$ azure provider show -n Microsoft.Compute
-data:    
-...
-data:    ProviderNamespace :  Microsoft.Compute
-data:    RegistrationState :  Registered
-data:    ResourceTypes     :  virtualMachines
-data:    Locations         :  East US, East US 2, West US, Central US, North Central US, South Central US, North Europe, West Europe, East Asia, Southeast Asia, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, South India, Central India, West India, Canada Central, Canada East, West US 2, West Central US, UK South, UK West
-data:    Aliases           : 
-data:           Microsoft.Compute/virtualMachines/sku.name
-data:           Microsoft.Compute/virtualMachines/imagePublisher
-data:           Microsoft.Compute/virtualMachines/imageOffer
-data:           Microsoft.Compute/virtualMachines/imageSku
-data:           Microsoft.Compute/virtualMachines/imageVersion
-...
-data:    
-info:    provider show command OK
+$ az provider show --namespace Microsoft.Compute
 ```
 
 It would be helpful to be able to list all of the resource providers
@@ -94,18 +70,9 @@ A resource group is itself a resource, and like all resources, it has to
 be created in a given location:
 
 ```bash
-# azure group create <resource-group> <location>
-# azure group create -n <resource-group> -l <location>
+# az group create -n <resource-group> -l <location>
 
-$ azure group create -n intro-rg -l westus
-info:    Created resource group intro-rg
-data:    Id:                  /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/intro-rg
-data:    Name:                intro-rg
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:    
-info:    group create command OK
+$ az group create -n intro-rg -l westus
 ```
 
 However, the resource group can contain resources that are **not** in the
@@ -114,56 +81,30 @@ same region as the group itself.
 You can see all of the resource groups for the current subscription with
 
 ```bash
-$ azure group list
-info:    Executing command group list
-+ Listing resource groups                                                      
-data:    Name       Location  Provisioning State  Tags:
-data:    ---------  --------  ------------------  -----
-data:    intro-rg   westus    Succeeded           null 
-info:    group list command OK
+$ az group list
 ```
 
 and all of the resources within a group in the current subscription with
 
 ```bash
-# azure group show <resource-group>
-# azure group show -n <resource-group>
+# az group show -n <resource-group>
 
-$ azure group show -n intro-rg
-info:    Executing command group show
-+ Listing resource groups                                                      
-+ Listing resources for the group                                              
-data:    Id:                  /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/intro-rg
-data:    Name:                intro-rg
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:    Resources:  []
-data:    Permissions:
-data:      Actions: *
-data:      NotActions: 
-data:    
-info:    group show command OK
+$ az group show -n intro-rg
 ```
 
 or
 
 ```bash
-# azure resource list -g <group>
+# az resource list -g <resource-group>
 
-$ azure resource list -g intro-rg
-info:    Executing command resource list
-+ Listing resources                                                            
-info:    No matched resources were found.
-info:    resource list command OK
+$ az resource list -g intro-rg
 ```
 
 Finally, when you're done with all of the resources in a group, you can
 delete them together by deleting the group that contains them.
 
 ```bash
-# azure group delete <group-name>
-# azure group delete -n <group-name>
+# az group delete -n <resource-group>
 ```
 
 These commands also take the "--subscription <subscription-id>" switch

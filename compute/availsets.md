@@ -20,27 +20,13 @@ domains (default 5) and fault domains (default 3) that it should span.  New
 VMs are added round-robin to these domains.
 
 ```bash
-# azure availset create -g <resource-group> -n <availability-set-name> -l <location> -a <update-domains> -b <fault-domains>
+# az vm availability-set create -g <resource-group> -n <availability-set-name> -l <region>
 
-$ azure availset create -g intro-rg -n intro-availset -l westus
-info:    Executing command availset create
-+ Looking up the availability set "intro-availset"                             
-+ Creating availability set "intro-availset"                                   
-info:    availset create command OK
+$ az vm availability-set create -g intro-rg -n intro-availset -l westus
 ```
 
 ```bash
-$ azure availset show -g intro-rg -n intro-availset
-info:    Executing command availset show
-+ Looking up the availability set "intro-availset"                             
-data:    id "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/intro-rg/providers/Microsoft.Compute/availabilitySets/intro-availset"
-data:    name "intro-availset"
-data:    type "Microsoft.Compute/availabilitySets"
-data:    location "westus"
-data:    platformUpdateDomainCount 5
-data:    platformFaultDomainCount 3
-data:    virtualMachines 0 id "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/INTRO-RG/providers/Microsoft.Compute/virtualMachines/INTRO-VM-BE1"
-info:    availset show command OK
+$ az vm availability-set show -g intro-rg -n intro-availset
 ```
 
 Note that there is a difference between having a single VM in an availability

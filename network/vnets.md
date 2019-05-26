@@ -17,50 +17,21 @@ Note that like any other resource, vnets must be created in a region,
 and cannot span regions.
 
 ```bash
-# azure network vnet create -g <resource-group> -n <name> -l <location> -a <address-space-csv>
+# az network vnet create -g <resource-group> -n <name> --address-prefix <address-space-csv>
 
-$ azure network vnet create -g intro-rg -n intro-vnet -l westus -a 10.0.0.0/8,192.168.0.0/16
-info:    Executing command network vnet create
-+ Looking up the virtual network "intro-vnet"                                  
-+ Creating virtual network "intro-vnet"                                        
-data:    Id                              : /subscriptions/25b347b0-e6dd-45c1-bb11-529e36438d8f/resourceGroups/intro-rg/providers/Microsoft.Network/virtualNetworks/intro-vnet
-data:    Name                            : intro-vnet
-data:    Type                            : Microsoft.Network/virtualNetworks
-data:    Location                        : westus
-data:    Provisioning state              : Succeeded
-data:    Address prefixes:
-data:      10.0.0.0/8
-data:      192.168.0.0/16
-info:    network vnet create command OK
+$ az network vnet create -g intro-rg -n intro-vnet --address-prefix 10.0.0.0/8 192.168.0.0/16
 ```
 
 ```bash
-# azure network vnet list -g <resource-group>
+# az network vnet list -g <resource-group>
 
-$ azure network vnet list -g intro-rg
-info:    Executing command network vnet list
-+ Looking up virtual networks                                                  
-data:    Name        Location  Resource group  Provisioning state  Address prefixes           DNS servers  Subnets number
-data:    ----------  --------  --------------  ------------------  -------------------------  -----------  --------------
-data:    intro-vnet  westus    intro-rg        Succeeded           10.0.0.0/8,192.168.0.0/16                             
-info:    network vnet list command OK
+$ az network vnet list -g intro-rg
 ```
 
 ```bash
-# azure network vnet show -g <resource-group> -n <vnet-name>
+# az network vnet show -g <resource-group> -n <vnet-name>
 
-$ azure network vnet show -g intro-rg -n intro-vnet
-info:    Executing command network vnet show
-+ Looking up the virtual network "intro-vnet"                                  
-data:    Id                              : /subscriptions/25b347b0-e6dd-45c1-bb11-529e36438d8f/resourceGroups/intro-rg/providers/Microsoft.Network/virtualNetworks/intro-vnet
-data:    Name                            : intro-vnet
-data:    Type                            : Microsoft.Network/virtualNetworks
-data:    Location                        : westus
-data:    Provisioning state              : Succeeded
-data:    Address prefixes:
-data:      10.0.0.0/8
-data:      192.168.0.0/16
-info:    network vnet show command OK
+$ az network vnet show -g intro-rg -n intro-vnet
 ```
 
 ## Subnets
@@ -71,62 +42,25 @@ by its parent vnet.  Network resources always exist within a subnet, rather
 than the parent vnet itself.
 
 ```bash
-# azure network vnet subnet create <resource-group-name> <vnet-name> <subnet-name>
-# azure network vnet subnet create -g <resource-group-name> -e <vnet-name> -n <subnet-name> -a <address-space>
+# az network vnet create -g <resource-group> -n <vnet-name> --address-prefix <address-space> --subnet-name <subnet-name> --subnet-prefix <address-space>
 
-$ azure network vnet subnet create -g intro-rg -e intro-vnet -n intro-subnet-10-0 -a 10.0.0.0/16
-info:    Executing command network vnet subnet create
-+ Looking up the virtual network "intro-vnet"                                  
-+ Looking up the subnet "intro-subnet-10-0"                                    
-+ Creating subnet "intro-subnet-10-0"                                          
-data:    Id                              : /subscriptions/25b347b0-e6dd-45c1-bb11-529e36438d8f/resourceGroups/intro-rg/providers/Microsoft.Network/virtualNetworks/intro-vnet/subnets/intro-subnet-10-0
-data:    Name                            : intro-subnet-10-0
-data:    Provisioning state              : Succeeded
-data:    Address prefix                  : 10.0.0.0/16
-info:    network vnet subnet create command OK
+$ az network vnet create -g intro-rg -n intro-vnet --address-prefix 10.0.0.0/16 --subnet-name intro-subnet --subnet-prefix 10.0.0.0/24
 ```
 
 ```bash
-$ azure network vnet subnet create -g intro-rg -e intro-vnet -n intro-subnet-10-1 -a 10.1.0.0/16
-info:    Executing command network vnet subnet create
-+ Looking up the virtual network "intro-vnet"                                  
-+ Looking up the subnet "intro-subnet-10-1"                                    
-+ Creating subnet "intro-subnet-10-1"                                          
-data:    Id                              : /subscriptions/25b347b0-e6dd-45c1-bb11-529e36438d8f/resourceGroups/intro-rg/providers/Microsoft.Network/virtualNetworks/intro-vnet/subnets/intro-subnet-10-1
-data:    Name                            : intro-subnet-10-1
-data:    Provisioning state              : Succeeded
-data:    Address prefix                  : 10.1.0.0/16
-info:    network vnet subnet create command OK
+$ az network vnet create -g intro-rg -n intro-vnet --address-prefix 192.168.0.0/16 --subnet-name intro-subnet2 --subnet-prefix 192.168.0.0/24
 ```
 
 ```bash
-# azure network vnet subnet list <resource-group-name> <vnet-name>
-# azure network vnet subnet list -g <resource-group-name> -e <vnet-name>
+# az network vnet subnet list -g <resource-group-name> --vnet-name <vnet-name>
 
-$ azure network vnet subnet list -g intro-rg -e intro-vnet
-info:    Executing command network vnet subnet list
-+ Looking up the virtual network "intro-vnet"                                  
-+ Getting virtual network subnets                                              
-data:    Name               Provisioning state  Address prefix
-data:    -----------------  ------------------  --------------
-data:    intro-subnet-10-0  Succeeded           10.0.0.0/16   
-data:    intro-subnet-10-1  Succeeded           10.1.0.0/16   
-info:    network vnet subnet list command OK
+$ az network vnet subnet list -g intro-rg --vnet-name intro-vnet
 ```
 
 ```bash
-# azure network vnet subnet show <resource-group-name> <vnet-name> <subnet-name>
-# azure network vnet subnet show -g <resource-group-name> -e <vnet-name> -n <subnet-name>
+# az network vnet subnet show -g <resource-group-name> --vnet-name <vnet-name> -n <subnet-name>
 
-$ azure network vnet subnet show -g intro-rg -e intro-vnet -n intro-subnet-10-0
-info:    Executing command network vnet subnet show
-+ Looking up the virtual network "intro-vnet"                                  
-+ Looking up the subnet "intro-subnet-10-0"                                    
-data:    Id                              : /subscriptions/25b347b0-e6dd-45c1-bb11-529e36438d8f/resourceGroups/intro-rg/providers/Microsoft.Network/virtualNetworks/intro-vnet/subnets/intro-subnet-10-0
-data:    Name                            : intro-subnet-10-0
-data:    Provisioning state              : Succeeded
-data:    Address prefix                  : 10.0.0.0/16
-info:    network vnet subnet show command OK
+$ az network vnet subnet show -g intro-rg --vnet-name intro-vnet -n intro-subnet
 ```
 
 There is a special subnet that does not exist by default, called 

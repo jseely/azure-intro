@@ -16,19 +16,9 @@ available publicly.  For all or any of these reasons, the [availability of
 Azure resources] (https://azure.microsoft.com/en-us/regions/services/)
 varies across regions.
 
-The Azure xplat CLI uses the label "location" instead of "region".
-You can find all of the regions/locations available for the environment
-of the currently active subscription with:
-
+Following command lists all the VM's in a region. 
 ```bash
-$ azure location list
-info:    Getting locations...
-data:    
-...
-data:    Location    :  westus
-data:    DisplayName :  West US
-data:    Providers   :  Microsoft.Batch, Microsoft.Compute, Microsoft.DocumentDB, Microsoft.Logic...
-...
+$ az vm list-usage --location westus
 ```
 
 Note that regional names are formed by concatenating the country name, 
