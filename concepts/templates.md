@@ -12,6 +12,14 @@ group, we use the azure CLI as follows:
 # az group export -n <resource-group> > <json output file name>
 
 $ az group export -n intro-rg > intro-rg.json
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": []
+}
 ```
 
 While this template has hard-coded values that correspond to the current
@@ -25,7 +33,33 @@ exist.
 ```bash
 # az group deployment create -g <resource-group> --template-file <template-file>
 
-$ az group deployment create -g intro-rg-2 --template-file intro-rg.json
+$ az group deployment create -g intro-rg --template-file intro-rg.json
+
+{
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Resources/deployments/intro-rg",
+  "location": null,
+  "name": "intro-rg",
+  "properties": {
+    "correlationId": "60a6de84-5ad2-4a3a-92e3-1ad39d557559",
+    "debugSetting": null,
+    "dependencies": [],
+    "duration": "PT6.6216406S",
+    "mode": "Incremental",
+    "onErrorDeployment": null,
+    "outputResources": [],
+    "outputs": null,
+    "parameters": {},
+    "parametersLink": null,
+    "providers": [],
+    "provisioningState": "Succeeded",
+    "template": null,
+    "templateHash": "394437604378211643",
+    "templateLink": null,
+    "timestamp": "2019-05-28T02:07:04.191746+00:00"
+  },
+  "resourceGroup": "intro-rg",
+  "type": null
+}
 ```
 
 Export the template used for a deployment...
@@ -33,6 +67,14 @@ Export the template used for a deployment...
 ```bash
 # az group deployment export -g <deployment> -n <resource-group>
 
-$ az group deployment export -g intro-rg-2 -n intro-rg
+$ az group deployment export -g intro-rg -n intro-rg
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": []
+}
 ```
 

@@ -9,9 +9,9 @@ incude an 'azure network nic set' command, it does not support changing
 the associated IP address.
 
 ```bash
-# az network nic create -g <resource-group> -n <name> -l <region> --vnet-name <vnet-name> --subnet intro-subnet2 --public-ip-address <public-ip-name>
+# az network nic create -g <resource-group> -n <name> -l <region> --vnet-name <vnet-name> --subnet <subnet-name> --public-ip-address <public-ip-name>
 
-$ az network nic create -g intro-rg -n intro-nic -l westus --vnet-name intro-vnet --subnet <subnet-name> --public-ip-address intro-pip
+$ az network nic create -g intro-rg -n intro-nic -l westus --vnet-name intro-vnet --subnet intro-subnet --public-ip-address intro-pip
 ```
 
 Note that while at present each NIC can have only one IP address assigned to

@@ -89,7 +89,18 @@ rest of the environment.  It doesn't need to be particularly performant.
 
 ```bash
 $ az vm create -g intro-rg -n intro-vm --nics intro-nic -l westus --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --size Standard_A1
-info:    Executing command vm create
+
+{
+  "fqdns": "intro-pip-label.westus.cloudapp.azure.com",
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Compute/virtualMachines/intro-vm",
+  "location": "westus",
+  "macAddress": "00-0D-3A-30-25-6A",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "40.118.162.188",
+  "resourceGroup": "intro-rg",
+  "zones": ""
+}
 ```
 
 Now we'll create the two VMs that will be behind the load balancer.  Note that

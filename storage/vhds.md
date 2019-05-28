@@ -23,6 +23,10 @@ standard OS image, but we'll create it ourselves here:
 
 ```bash
 $ az storage container create -n vhds --account-name introdlkfj4875dfstrg --account-key zp/5Ek+YHn24bIfLwy84BPxOtgxs4CqeH6wgbKp+IXSJwfqXFmBHK7lGHuId125tFI25neKSzsC6om/Bj7vDSA== 
+
+{
+  "created": true
+}
 ```
 
 Note that when a VM is using a VHD, it places a lease on the VHD so that

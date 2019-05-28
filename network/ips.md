@@ -45,6 +45,38 @@ to -a is the allocation method: "Dynamic" (the default) or "Static".
 # az network public-ip create -g <resource-group> -n <name> --dns-name <dns-name> -l <region-name> --allocation-method Static|Dynamic
 
 $ az network public-ip create -g intro-rg -n intro-pip --dns-name intro-pip-label -l westus --allocation-method Static
+
+{
+  "publicIp": {
+    "ddosSettings": null,
+    "dnsSettings": {
+      "domainNameLabel": "intro-pip-label",
+      "fqdn": "intro-pip-label.westus.cloudapp.azure.com",
+      "reverseFqdn": null
+    },
+    "etag": "W/\"a15700cf-a5b8-432d-9a1a-08f3abcda590\"",
+    "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/publicIPAddresses/intro-pip",
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "40.118.162.188",
+    "ipConfiguration": null,
+    "ipTags": [],
+    "location": "westus",
+    "name": "intro-pip",
+    "provisioningState": "Succeeded",
+    "publicIpAddressVersion": "IPv4",
+    "publicIpAllocationMethod": "Static",
+    "publicIpPrefix": null,
+    "resourceGroup": "intro-rg",
+    "resourceGuid": "d91294bc-3888-46f6-9d65-38d26038d4dd",
+    "sku": {
+      "name": "Basic",
+      "tier": "Regional"
+    },
+    "tags": null,
+    "type": "Microsoft.Network/publicIPAddresses",
+    "zones": null
+  }
+}
 ```
 
 We'll need another PIP later for our load balancer, so we'll create that now
@@ -58,10 +90,72 @@ $ az network public-ip create -g intro-rg -n intro-pip-lb --dns-name intro-pip-l
 # az network public-ip list -g <resource-group-name>
 
 $ az network public-ip list -g intro-rg
+
+[
+  {
+    "ddosSettings": null,
+    "dnsSettings": {
+      "domainNameLabel": "intro-pip-label",
+      "fqdn": "intro-pip-label.westus.cloudapp.azure.com",
+      "reverseFqdn": null
+    },
+    "etag": "W/\"a15700cf-a5b8-432d-9a1a-08f3abcda590\"",
+    "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/publicIPAddresses/intro-pip",
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "40.118.162.188",
+    "ipConfiguration": null,
+    "ipTags": [],
+    "location": "westus",
+    "name": "intro-pip",
+    "provisioningState": "Succeeded",
+    "publicIpAddressVersion": "IPv4",
+    "publicIpAllocationMethod": "Static",
+    "publicIpPrefix": null,
+    "resourceGroup": "intro-rg",
+    "resourceGuid": "d91294bc-3888-46f6-9d65-38d26038d4dd",
+    "sku": {
+      "name": "Basic",
+      "tier": "Regional"
+    },
+    "tags": null,
+    "type": "Microsoft.Network/publicIPAddresses",
+    "zones": null
+  }
+]
 ```
 
 ```bash
 # az network public-ip show -g <resource-group-name> -n <public-ip-name>
 
 $ az network public-ip show -g intro-rg -n intro-pip
+
+{
+  "ddosSettings": null,
+  "dnsSettings": {
+    "domainNameLabel": "intro-pip-label",
+    "fqdn": "intro-pip-label.westus.cloudapp.azure.com",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"a15700cf-a5b8-432d-9a1a-08f3abcda590\"",
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/publicIPAddresses/intro-pip",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.118.162.188",
+  "ipConfiguration": null,
+  "ipTags": [],
+  "location": "westus",
+  "name": "intro-pip",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Static",
+  "publicIpPrefix": null,
+  "resourceGroup": "intro-rg",
+  "resourceGuid": "d91294bc-3888-46f6-9d65-38d26038d4dd",
+  "sku": {
+    "name": "Basic",
+    "tier": "Regional"
+  },
+  "tags": null,
+  "type": "Microsoft.Network/publicIPAddresses",
+  "zones": null
+}
 ```

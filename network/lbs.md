@@ -13,6 +13,46 @@ probes.
 # az network lb create -g <resource-group> -n <lb-name> -l <location>
 
 $ az network lb create -g intro-rg -n intro-lb -l westus
+
+{
+  "loadBalancer": {
+    "backendAddressPools": [
+      {
+        "etag": "W/\"a49bc906-6982-4c6b-a07a-b02a574a2099\"",
+        "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/loadBalancers/intro-lb/backendAddressPools/intro-lbbepool",
+        "name": "intro-lbbepool",
+        "properties": {
+          "provisioningState": "Succeeded"
+        },
+        "resourceGroup": "intro-rg",
+        "type": "Microsoft.Network/loadBalancers/backendAddressPools"
+      }
+    ],
+    "frontendIPConfigurations": [
+      {
+        "etag": "W/\"a49bc906-6982-4c6b-a07a-b02a574a2099\"",
+        "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/loadBalancers/intro-lb/frontendIPConfigurations/LoadBalancerFrontEnd",
+        "name": "LoadBalancerFrontEnd",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/publicIPAddresses/PublicIPintro-lb",
+            "resourceGroup": "intro-rg"
+          }
+        },
+        "resourceGroup": "intro-rg",
+        "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations"
+      }
+    ],
+    "inboundNatPools": [],
+    "inboundNatRules": [],
+    "loadBalancingRules": [],
+    "probes": [],
+    "provisioningState": "Succeeded",
+    "resourceGuid": "e60610ac-bc40-405f-8cdf-845470c04871"
+  }
+}
 ```
 
 Load balancers can either be internet-facing, in which case we need a PIP
@@ -30,6 +70,18 @@ Now, we create the backend pool...
 
 ```bash
 $ az network lb address-pool create -g intro-rg --lb-name intro-lb -n intro-lb-back
+
+{
+  "backendIpConfigurations": null,
+  "etag": "W/\"fbda07b9-1ea7-40fe-a6f4-6229239cd445\"",
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/loadBalancers/intro-lb/backendAddressPools/intro-lb-back",
+  "loadBalancingRules": null,
+  "name": "intro-lb-back",
+  "outboundRule": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "intro-rg",
+  "type": "Microsoft.Network/loadBalancers/backendAddressPools"
+}
 ```
 
 And add the two NICs we created previously to it.

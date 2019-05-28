@@ -28,6 +28,30 @@ We can extend the rules, for example allowing ssh (tcp port 22) like this:
 # az network nsg rule create -g <resource-group> --nsg-name <nsg-name> -n allow-ssh-in --access Allow/Deny --direction Inbound/Outbound --protocol Tcp/Udp/* --source-port-ranges <port> --priority <priority>
 
 $ az network nsg rule create -g intro-rg --nsg-name intro-nsg -n allow-ssh-in --access Allow --direction Inbound --protocol Tcp --source-port-ranges 22 --priority 100
+
+{
+  "access": "Allow",
+  "description": null,
+  "destinationAddressPrefix": "*",
+  "destinationAddressPrefixes": [],
+  "destinationApplicationSecurityGroups": null,
+  "destinationPortRange": "80",
+  "destinationPortRanges": [],
+  "direction": "Inbound",
+  "etag": "W/\"509ecf2b-ddab-403f-b44f-405891b3e99d\"",
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/networkSecurityGroups/intro-nsg/securityRules/allow-ssh-in",
+  "name": "allow-ssh-in",
+  "priority": 100,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "intro-rg",
+  "sourceAddressPrefix": "*",
+  "sourceAddressPrefixes": [],
+  "sourceApplicationSecurityGroups": null,
+  "sourcePortRange": "22",
+  "sourcePortRanges": [],
+  "type": "Microsoft.Network/networkSecurityGroups/securityRules"
+}
 ```
 
 Showing the NSG or listing the rules will verify that the rule has been added:

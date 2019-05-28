@@ -32,4 +32,17 @@ You can obtain the technical details for a given Subscription as follows:
 ```bash
 
 $ az account show
+
+{
+  "environmentName": "AzureCloud",
+  "id": "f2208c82-cb83-4a04-824a-30a326257asd",
+  "isDefault": true,
+  "name": "PGTM-pbopardikar",
+  "state": "Enabled",
+  "tenantId": "12345f74-371f-4db2-9a50-c62a6877a0c9",
+  "user": {
+    "name": "pbopardikar@pivotal.io",
+    "type": "user"
+  }
+}
 ```

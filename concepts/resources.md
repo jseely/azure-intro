@@ -73,6 +73,18 @@ be created in a given location:
 # az group create -n <resource-group> -l <location>
 
 $ az group create -n intro-rg -l westus
+
+{
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257asd/resourceGroups/intro-rg",
+  "location": "westus",
+  "managedBy": null,
+  "name": "intro-rg",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": null
+}
 ```
 
 However, the resource group can contain resources that are **not** in the

@@ -23,10 +23,48 @@ VMs are added round-robin to these domains.
 # az vm availability-set create -g <resource-group> -n <availability-set-name> -l <region>
 
 $ az vm availability-set create -g intro-rg -n intro-availset -l westus
+
+{
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Compute/availabilitySets/intro-availset",
+  "location": "westus",
+  "name": "intro-availset",
+  "platformFaultDomainCount": 2,
+  "platformUpdateDomainCount": 5,
+  "proximityPlacementGroup": null,
+  "resourceGroup": "intro-rg",
+  "sku": {
+    "capacity": null,
+    "name": "Aligned",
+    "tier": null
+  },
+  "statuses": null,
+  "tags": {},
+  "type": "Microsoft.Compute/availabilitySets",
+  "virtualMachines": []
+}
 ```
 
 ```bash
 $ az vm availability-set show -g intro-rg -n intro-availset
+
+{
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Compute/availabilitySets/intro-availset",
+  "location": "westus",
+  "name": "intro-availset",
+  "platformFaultDomainCount": 2,
+  "platformUpdateDomainCount": 5,
+  "proximityPlacementGroup": null,
+  "resourceGroup": "intro-rg",
+  "sku": {
+    "capacity": null,
+    "name": "Aligned",
+    "tier": null
+  },
+  "statuses": null,
+  "tags": {},
+  "type": "Microsoft.Compute/availabilitySets",
+  "virtualMachines": []
+}
 ```
 
 Note that there is a difference between having a single VM in an availability

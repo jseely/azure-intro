@@ -8,6 +8,10 @@ contained within it), you must have its [connection string](https://docs.microso
 # az storage account show-connection-string -g <resource-group> -n <account-name>
 
 $ az storage account show-connection-string -g intro-rg -n introdlkfj4875dfstrg
+
+{
+  "connectionString": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=introdlkfj4875dfstrg;AccountKey=AMoZRRAWmTTWcMpKXSwgxejxqRM6CVQIzwj3N096LM0gHfbnbNH9uG5c3xRDE+2MhsyWrY7hneYoD6zCbQ=="
+}
 ```
 
 The connection string includes an account key; this is similar to a root

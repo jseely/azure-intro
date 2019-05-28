@@ -7,6 +7,27 @@ unlike most other resources, you do not need to specify a location for the zone.
 
 ```bash
 $ az network dns zone create -g intro-rg -n intro.on-azure.info
+
+{
+  "etag": "00000002-0000-0000-ffff-d8e50915d501",
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/dnszones/intro.on-azure.info",
+  "location": "global",
+  "maxNumberOfRecordSets": 10000,
+  "name": "intro.on-azure.info",
+  "nameServers": [
+    "ns1-09.azure-dns.com.",
+    "ns2-09.azure-dns.net.",
+    "ns3-09.azure-dns.org.",
+    "ns4-09.azure-dns.info."
+  ],
+  "numberOfRecordSets": 2,
+  "registrationVirtualNetworks": null,
+  "resolutionVirtualNetworks": null,
+  "resourceGroup": "intro-rg",
+  "tags": {},
+  "type": "Microsoft.Network/dnszones",
+  "zoneType": "Public"
+}
 ```
 
 Once the zone has been created, you can see that the NS and SOA record sets
@@ -24,6 +45,21 @@ To add DNS records to our zone, we must first [create a new record set](https://
 # azure network dns record-set create -g <resource-group> -z <zone> -n <dns-name> -y <record-type>
 
 $ az network dns record-set a create -g intro-rg -z intro.on-azure.info -n www
+
+{
+  "etag": "da374c2e-a7d8-4690-989d-d894ab30fc09",
+  "fqdn": "www.intro.on-azure.info.",
+  "id": "/subscriptions/f9508c82-cb83-4a04-824a-30a326257ebd/resourceGroups/intro-rg/providers/Microsoft.Network/dnszones/intro.on-azure.info/A/www",
+  "metadata": null,
+  "name": "www",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "intro-rg",
+  "targetResource": {
+    "id": null
+  },
+  "ttl": 3600,
+  "type": "Microsoft.Network/dnszones/A"
+}
 ```
 
 We can then add a record to this set.  In this case, we'll use the PIP of 

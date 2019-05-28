@@ -32,9 +32,8 @@ including most notably azure.details.log and azure.err, with additional
 information on successful and failed requests, respectively.
 
 ## ARM Activity Logs
-Note: need to find the equivalent command in v2 CLI for logs...
+az commands for logs here: https://docs.microsoft.com/en-us/cli/azure/monitor/activity-log?view=azure-cli-latest
 ```bash
-# azure group log show -n <resource-group>
 ```
  will give the history of the
 ARM operations on a given resource group.  There are various other additional

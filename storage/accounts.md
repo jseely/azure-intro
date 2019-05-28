@@ -59,6 +59,8 @@ costs are more expensive.
 ```bash
 # az storage account create -g <resource-group> --kind <kind> --sku <SKU Standard/Premium...> -l <region> -n <account-name>
 $ az storage account create -g intro-rg --kind Storage --sku Standard_LRS -l westus -n introdlkfj4875dfstrg
+
+
 ```
 
 A few tips to note...  First, be aware that unlike other resource names, 
