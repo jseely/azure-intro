@@ -88,7 +88,7 @@ Our first VM is the "jumpbox", a utility VM that allows us to service the
 rest of the environment.  It doesn't need to be particularly performant.
 
 ```bash
-$ az vm create -g intro-rg -n intro-vm --nics intro-nic -l westus --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --size Standard_A1
+$ az vm create -g intro-rg -n intro-vm --nics intro-nic -l westus --admin-username admin1 --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --size Standard_A1
 
 {
   "fqdns": "intro-pip-label.westus.cloudapp.azure.com",
@@ -108,9 +108,9 @@ we're setting the boot diagnostics to be stored in the original strorage
 account.
 
 ```bash
-$ az vm create -g intro-rg -n intro-vm-be1 --nics intro-nic-be1 -l westus --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --size Standard_DS1 --availability-set intro-availset
+$ az vm create -g intro-rg -n intro-vm-be1 --nics intro-nic-be1 -l westus --admin-username admin1 --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --size Standard_DS1 --availability-set intro-availset
 ```
 
 ```bash
-$ az vm create -g intro-rg -n intro-vm-be2 --nics intro-nic-be2 -l westus --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --size Standard_DS1 --availability-set intro-availset
+$ az vm create -g intro-rg -n intro-vm-be2 --nics intro-nic-be2 -l westus --admin-username admin1 --image UbuntuLTS --ssh-key-value ~/.ssh/id_rsa.pub --size Standard_DS1 --availability-set intro-availset
 ```
