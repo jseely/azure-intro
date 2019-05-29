@@ -18,8 +18,8 @@ and cannot span regions.
 
 ```bash
 # az network vnet create -g <resource-group> -n <name> --address-prefix <address-space-csv>
-
-$ az network vnet create -g intro-rg -n intro-vnet --address-prefix 10.0.0.0/8 192.168.0.0/16
+  
+$ az network vnet create -g intro-rg -n intro-vnet -l westus --address-prefix 10.0.0.0/8 192.168.0.0/16
 
 {
   "newVNet": {
