@@ -126,7 +126,7 @@ than the parent vnet itself.
 ```bash
 # az network vnet create -g <resource-group> -n <vnet-name> --address-prefix <address-space> --subnet-name <subnet-name> --subnet-prefix <address-space>
 
-$ az network vnet create -g intro-rg -n intro-vnet --address-prefix 10.0.0.0/16 --subnet-name intro-subnet --subnet-prefix 10.0.0.0/24
+$ az network vnet subnet create -g intro-rg -n intro-subnet --address-prefixes 10.0.0.0/16 --vnet-name intro-vnet
 
 {
   "newVNet": {
@@ -179,7 +179,7 @@ $ az network vnet create -g intro-rg -n intro-vnet --address-prefix 10.0.0.0/16 
 ```
 
 ```bash
-$ az network vnet create -g intro-rg -n intro-vnet --address-prefix 192.168.0.0/16 --subnet-name intro-subnet2 --subnet-prefix 192.168.0.0/24
+$ az network vnet subnet create -g intro-rg -n intro-subnet2 --address-prefixes 192.168.0.0/24 --vnet-name intro-vnet
 ```
 
 ```bash
