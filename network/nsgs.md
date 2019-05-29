@@ -27,7 +27,7 @@ We can extend the rules, for example allowing ssh (tcp port 22) like this:
 ```bash
 # az network nsg rule create -g <resource-group> --nsg-name <nsg-name> -n allow-ssh-in --access Allow/Deny --direction Inbound/Outbound --protocol Tcp/Udp/* --source-port-ranges <port> --priority <priority>
 
-$ az network nsg rule create -g intro-rg --nsg-name intro-nsg -n allow-ssh-in --access Allow --direction Inbound --protocol Tcp --source-port-ranges 22 --priority 100
+$ az network nsg rule create -g intro-rg --nsg-name intro-nsg -n allow-ssh-in --access Allow --direction Inbound --protocol Tcp --destination-port-ranges 22 --priority 100
 
 {
   "access": "Allow",
