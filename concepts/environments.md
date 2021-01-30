@@ -21,34 +21,28 @@ providers](resources.md) may be available, API versions may vary, the
 [Marketplace](https://azure.microsoft.com/en-us/marketplace/) may contain
 different offerings, etc.
 
-The list of environments can be seen like this:
+The list of Subscription can be seen like this:
 
 ```bash
-$ azure account env list
-info:    Executing command account env list
-data:    Name             
-data:    -----------------
-data:    AzureCloud       
-data:    AzureChinaCloud  
-data:    AzureUSGovernment
-data:    AzureGermanCloud 
-info:    account env list command OK
+$ az account list
 ```
 
-You can obtain the technical details for a given environment, for example
-whether or not it is public, and its REST endpoints, as follows:
+You can obtain the technical details for a given Subscription as follows:
 
 ```bash
-# azure account env show <environment-name>
-# azure account env show --environment <environment-name>
 
-$ azure account env show AzureCloud
-info:    Executing command account env show
-data:    Name:                                              AzureCloud
-...
-data:    isPublicEnvironment:                               true
-...
-data:    managementEndpointUrl:                             https://management.
-                                                            core.windows.net
-...
+$ az account show
+
+{
+  "environmentName": "AzureCloud",
+  "id": "f2208c82-cb83-4a04-824a-30a326257asd",
+  "isDefault": true,
+  "name": "PGTM-pbopardikar",
+  "state": "Enabled",
+  "tenantId": "12345f74-371f-4db2-9a50-c62a6877a0c9",
+  "user": {
+    "name": "pbopardikar@pivotal.io",
+    "type": "user"
+  }
+}
 ```

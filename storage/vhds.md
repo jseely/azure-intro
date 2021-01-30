@@ -22,20 +22,11 @@ will create it for you automatically if it's missing, if you're using a
 standard OS image, but we'll create it ourselves here:
 
 ```bash
-$ azure storage container create -c 'DefaultEndpointsProtocol=https;AccountName=intro20161122strgprm;AccountKey=7sKhyLqDk8J5pSsloNrfU4MVohK7uu3qFwKJBX3ZT37UsI8WsH/FnRE7JmPskqXb2yBkHdalXJV5EqBKx17o3Q==' --container vhds 
-info:    Executing command storage container create
-+ Creating storage container vhds                                              
-+ Getting storage container information                                        
-data:    {
-data:        name: 'vhds',
-data:        metadata: {},
-data:        etag: '"0x8D417379EAB3A69"',
-data:        lastModified: 'Mon, 28 Nov 2016 02:38:21 GMT',
-data:        lease: { status: 'unlocked', state: 'available' },
-data:        requestId: 'd7c02823-001c-000d-3220-49dfa4000000',
-data:        publicAccessLevel: 'Off'
-data:    }
-info:    storage container create command OK
+$ az storage container create -n vhds --account-name introdlkfj4875dfstrg --account-key zp/5Ek+YHn24bIfLwy84BPxOtgxs4CqeH6wgbKp+IXSJwfqXFmBHK7lGHuId125tFI25neKSzsC6om/Bj7vDSA== 
+
+{
+  "created": true
+}
 ```
 
 Note that when a VM is using a VHD, it places a lease on the VHD so that

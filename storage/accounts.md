@@ -57,12 +57,10 @@ costs are more expensive.
 ## CLI
 
 ```bash
-# azure storage account create -g <resource-group> --kind <kind> --sku-name <sku> --access-tier <tier> -l <location> <account-name>
-$ azure storage account create -g intro-rg --kind Storage --sku-name LRS -l westus intro20161122strg
-info:    Executing command storage account create
-+ Checking availability of the storage account name                            
-+ Creating storage account                                                     
-info:    storage account create command OK
+# az storage account create -g <resource-group> --kind <kind> --sku <SKU Standard/Premium...> -l <region> -n <account-name>
+$ az storage account create -g intro-rg --kind Storage --sku Standard_LRS -l westus -n introdlkfj4875dfstrg
+
+
 ```
 
 A few tips to note...  First, be aware that unlike other resource names, 
@@ -75,9 +73,5 @@ of the account is not supported.
 Premium accounts are created using the 'PLRS' sku:
 
 ```bash
-$ azure storage account create -g intro-rg --kind Storage --sku-name PLRS -l westus intro20161122strgprm
-info:    Executing command storage account create
-+ Checking availability of the storage account name                            
-+ Creating storage account                                                     
-info:    storage account create command OK
+$ az storage account create -g intro-rg --kind Storage --sku Premium_LRS -l westus -n introdlkfj4876dfstrg
 ```
